@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rutas Frescas de El Salvador</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+    header {
+      background: #0d6efd;
+      color: white;
+      text-align: center;
+      padding: 0;
+    }
+   header img {
+  display: block;
+  margin: 0 auto;
+  max-width: 20%;
+  height: auto;         /* Mantiene proporción, sin recorte */
+  object-fit: contain;  /* Si alguna vez le das altura fija, evitará recortar */
+    }
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 20px;
+      display: block;
+    }
+    nav a:hover {
+      background: #0d6efd;
+    }
+    .container {
+      width: 90%;
+      margin: auto;
+      overflow: hidden;
+      padding: 20px 0;
+    }
+    .section {
+      margin-bottom: 40px;
+    }
+    .section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0d6efd;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .card:hover {
+      transform: scale(1.05);
+    }
+    .card img {
+  width: 20%;
+  height: auto;         /* Quita la altura fija */
+  object-fit: contain;  /* Nunca recorta */
+  background: #111;     /* “barras” discretas si la proporción no coincide */
+    }
+    .card h3 {
+      margin: 10px;
+      color: #333;
+    }
+    .card p {
+      padding: 0 10px 15px;
+      font-size: 14px;
+    }
+    footer {
+      background: #333;
+      color: white;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado -->
+  <header>
+    <img src="XAVI EDICION.png" alt="Encabezado Rutas Frescas" width="100%" height="400">
+    <h1>Rutas Frescas de El Salvador</h1>
+    <p>Descubre la belleza natural, cultural y gastronómica</p>
+  </header>
+
+  <!-- Navegación -->
+  <nav>
+    <a href="#rutas">Rutas</a>
+    <a href="#naturaleza">Naturaleza</a>
+    <a href="#pueblos">Pueblos</a>
+    <a href="#contacto">Contacto</a>
+  </nav>
+
+  <!-- Contenido -->
+  <div class="container">
+    <!-- Sección 1 -->
+    <div id="rutas" class="section">
+      <h2>Rutas Turísticas</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="rutalasflores.jpg" alt="Ruta de las Flores">
+          <h3>Ruta de las Flores</h3>
+          <p>Un recorrido lleno de color, cultura y café, visitando pueblos como Juayúa, Ataco y Apaneca.</p>
+        </div>
+        <div class="card">
+          <img src="ruta_balsamo.jpg" alt="Ruta del Bálsamo">
+          <h3>Ruta del Bálsamo</h3>
+          <p>Explora la costa, playas, artesanías y la belleza natural que rodea esta ruta única.</p>
+        </div>
+        <div class="card">
+          <img src="ruta_artesanal.jpg" alt="Ruta Artesanal">
+          <h3>Ruta Artesanal</h3>
+          <p>Descubre los pueblos artesanos y su cultura viva a través de la cerámica, tejidos y más.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 2 -->
+    <div id="naturaleza" class="section">
+      <h2>Rutas Naturales</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="volcan_izalco.jpg" alt="Volcán de Izalco">
+          <h3>Volcán de Izalco</h3>
+          <p>Conocido como el “Faro del Pacífico”, es uno de los volcanes más emblemáticos de El Salvador.</p>
+        </div>
+        <div class="card">
+          <img src="lago_coatepeque.jpeg" alt="Lago de Coatepeque">
+          <h3>Lago de Coatepeque</h3>
+          <p>Un lago de origen volcánico con aguas cristalinas, ideal para turismo y deportes acuáticos.</p>
+        </div>
+        <div class="card">
+          <img src="cerro_verde.jpg" alt="Cerro Verde">
+          <h3>Cerro Verde</h3>
+          <p>Parque natural con senderos frescos, vistas impresionantes y clima agradable todo el año.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección 3 -->
+    <div id="pueblos" class="section">
+      <h2>Pueblos con Encanto</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="juayua.jpg" alt="Juayúa">
+          <h3>Juayúa</h3>
+          <p>Famoso por su festival gastronómico y rodeado de bellos paisajes de montaña.</p>
+        </div>
+        <div class="card">
+          <img src="ataco.jpg" alt="Ataco">
+          <h3>Ataco</h3>
+          <p>Un pueblo lleno de murales artísticos, cafés pintorescos y ambiente acogedor.</p>
+        </div>
+        <div class="card">
+          <img src="apaneca.jpg" alt="Apaneca">
+          <h3>Apaneca</h3>
+          <p>Un destino ideal para los amantes de la naturaleza y la aventura al aire libre.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pie de página -->
+  <footer id="contacto">
+    <p>&copy; 2025 Rutas Frescas de El Salvador | Todos los derechos reservados</p>
+  </footer>
+</body>
+</html>
+
+
