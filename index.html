@@ -2,6 +2,92 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <title>Ruta Fresca</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Pantalla de bienvenida */
+    #bienvenida {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, #28a745, #1e7e34);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 40px;
+      box-sizing: border-box;
+      z-index: 1000;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    #bienvenida h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    #bienvenida p {
+      font-size: 1.2em;
+      margin-bottom: 10px;
+      line-height: 1.6;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* Contenido principal */
+    #contenido {
+      display: none;
+      padding: 20px;
+    }
+
+    h2 {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Pantalla de Bienvenida -->
+  <div id="bienvenida">
+    <h1>Bienvenidos a Ruta Fresca</h1>
+    <p>Bienvenidos a nuestra página web, donde encontrarás información sobre la Ruta Fresca en El Salvador.</p>
+    <p>Descubre un mundo donde la naturaleza, la aventura y la frescura se unen para regalarte experiencias que recordarás toda la vida.</p>
+    <p>Si sueñas con respirar aire puro en la cima de una montaña, recorrer senderos envueltos en vegetación, o simplemente desconectarte del ruido para conectar con la tranquilidad… este es el lugar ideal para empezar tu próxima aventura.</p>
+    <p><b>En Ruta Fresca te esperan:</b></p>
+    <p>• Paisajes impresionantes que enamoran a primera vista.<br>
+       • Momentos auténticos que se viven con el corazón.<br>
+       • Comunidades llenas de calidez, que convierten cada parada en una historia especial.</p>
+    <p>Aquí encontrarás información práctica, recomendaciones exclusivas y descripciones inspiradoras para que planifiques tu viaje de forma sencilla y emocionante.</p>
+    <p><b>Explora. Respira. Vive la Ruta Fresca.</b></p>
+  </div>
+  <script>
+    // Mostrar bienvenida 6 segundos y luego pasar al contenido
+    window.onload = function() {
+      setTimeout(function() {
+        document.getElementById("bienvenida").style.display = "none";
+        document.getElementById("contenido").style.display = "block";
+      }, 6000);
+    };
+  </script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Rutas Frescas de El Salvador</title>
   <style>
@@ -20,11 +106,11 @@
       padding: 0;
     }
    header img {
-  display: block;
-  margin: 0 auto;
-  max-width: 20%;
-  height: auto;         /* Mantiene proporción, sin recorte */
-  object-fit: contain;  /* Si alguna vez le das altura fija, evitará recortar */
+      display: block;
+      margin: 0 auto;
+      max-width: 20%;
+      height: auto;
+      object-fit: contain;
     }
     nav {
       background: #333;
@@ -32,10 +118,11 @@
       justify-content: center;
     }
     nav a {
-      color: white;
+      color: rgb(150, 196, 158);
       text-decoration: none;
       padding: 15px 20px;
       display: block;
+      cursor: pointer;
     }
     nav a:hover {
       background: #0d6efd;
@@ -60,7 +147,7 @@
       gap: 20px;
     }
     .card {
-      background: white;
+      background: rgb(243, 179, 179);
       border-radius: 10px;
       box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
       overflow: hidden;
@@ -70,10 +157,10 @@
       transform: scale(1.05);
     }
     .card img {
-  width: 20%;
-  height: auto;         /* Quita la altura fija */
-  object-fit: contain;  /* Nunca recorta */
-  background: #111;     /* “barras” discretas si la proporción no coincide */
+      width: 20%;
+      height: auto;
+      object-fit: contain;
+      background: #111;
     }
     .card h3 {
       margin: 10px;
@@ -89,6 +176,44 @@
       text-align: center;
       padding: 15px 0;
       margin-top: 30px;
+    }
+
+    /* --- Estilos de las ventanas modales --- */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      text-align: center;
+      position: relative;
+      animation: zoomIn 0.3s ease;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px; right: 15px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #333;
+      cursor: pointer;
+    }
+    .close-btn:hover {
+      color: red;
+    }
+
+    @keyframes zoomIn {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
@@ -106,74 +231,105 @@
     <a href="#naturaleza">Naturaleza</a>
     <a href="#pueblos">Pueblos</a>
     <a href="#contacto">Contacto</a>
+    <a id="btnMision">Misión</a>
+    <a id="btnVision">Visión</a>
   </nav>
 
   <!-- Contenido -->
   <div class="container">
     <!-- Sección 1 -->
     <div id="rutas" class="section">
-      <h2>Rutas Turísticas</h2>
-      <div class="cards">
+      <h2>Atractivos Turisticos</h2>
+      <!-- Aquí están las cards de tus rutas -->
+       <div class="cards">
         <div class="card">
-          <img src="rutalasflores.jpg" alt="Ruta de las Flores">
-          <h3>Ruta de las Flores</h3>
-          <p>Un recorrido lleno de color, cultura y café, visitando pueblos como Juayúa, Ataco y Apaneca.</p>
+          <img src="la_palma.jpg" alt="Ruta de las Flores">
+          <h3>La Palma</h3>
+          <p>La Palma. Es un atractivo turístico en Chalatenango conocido por su ambiente natural, 
+            que permite actividades como el camping y la observación de fauna y flora, así como el senderismo en sus diferentes rutas, 
+            y es visitada por su entorno. .</p>
+            <img src="museo_fer.jpg" alt="Ruta de las Flores">
+            <p>Reconocida como “Cuna de la Paz”, fue escenario histórico de negociaciones de los Acuerdos de Paz 
+Centro artesanal de El Salvador, con más de 100 talleres y el Museo Fernando Llort, famoso por su estilo naíf 
+Ofrece ecoturismo, bosques, senderos, cascadas y opciones para hospedar y degustar comida típica</p>
+<img src="PARQUENACINal.jpg" alt="Ruta de las Flores">
+ <p>Parque Nacional El Trifinio / Montecristo
+A pocos kilómetros de La Palma, este parque trinacional (compartido con Honduras y Guatemala) ofrece senderos, clima frío y biodiversidad.
+Es uno de los pocos lugares donde puedes ver el punto tripartito fronterizo.
+</p>
+
         </div>
         <div class="card">
-          <img src="ruta_balsamo.jpg" alt="Ruta del Bálsamo">
-          <h3>Ruta del Bálsamo</h3>
-          <p>Explora la costa, playas, artesanías y la belleza natural que rodea esta ruta única.</p>
+          <img src="sanignacion.jpg" alt="Ruta de las Flores">
+          <h3>San Ignacio</h3>
+          <p>San Ignacio Un pueblo acogedor rodeado de montañas.
+Clima fresco todo el año, ideal para caminatas y turismo rural.
+Desde aquí se accede fácilmente a varios destinos de montaña..</p>
+          <img src="elpital.jpg" alt="Ruta de las Flores">
+          <p>Cerro El Pital
+Es la montaña más alta de El Salvador (2 730 m), compartida con Honduras, ideal para caminatas, camping y observar un bosque nuboso repleto de aves y orquídeas. 
+Recomendado llevar ropa abrigada y calzado.
+</p>
+<img src="cayaguanca.jpg" alt="Ruta de las Flores">
+<p>Peñón de Cayaguanca
+También llamada "Piedra que ve a las estrellas", esta formación rocosa a 1 621 m sobre el nivel del mar ofrece vistas de ríos cercanos y paisajes imponentes, además de una leyenda local.
+Un sitio ideal para caminatas escénicas llenas de mitología.
+</p>
         </div>
         <div class="card">
-          <img src="ruta_artesanal.jpg" alt="Ruta Artesanal">
-          <h3>Ruta Artesanal</h3>
-          <p>Descubre los pueblos artesanos y su cultura viva a través de la cerámica, tejidos y más.</p>
+          <img src="Citalaa.jpg" alt="Ruta Artesanal">
+          <h3>Citalá</h3>
+          <p>Citalá
+Pueblo cercano a la frontera con Honduras.
+Conocido por su iglesia colonial y entorno natural.
+Se puede hacer ciclismo de montaña y senderismo.
+.</p>
+          <img src="citala.jpg" alt="Ruta de las Flores">
+          <p>Iglesia Colonial de Citalá ("Iglesia del Pilar")
+Una joya neoclásica construida en 1804 y remodelada en 1892, considerada una de las más antiguas y valiosas del país.
+ En su interior se conservan imágenes coloniales y documentos parroquiales del siglo XVIII.</p>
+ <img src="CITALAAA.jpg" alt="Ruta de las Flores">
+<p>Parque Central.
+   <p>Un espacio tranquilo y simbólico, ideal para relajarse mientras observas el cotidiano local. 
+Frente a la iglesia, el parque cuenta con símbolos históricos como la cruz de 1892 y los amate que lo embellecen
+.</p>
+
+</p>
         </div>
       </div>
     </div>
 
-    <!-- Sección 2 -->
-    <div id="naturaleza" class="section">
-      <h2>Rutas Naturales</h2>
-      <div class="cards">
-        <div class="card">
-          <img src="volcan_izalco.jpg" alt="Volcán de Izalco">
-          <h3>Volcán de Izalco</h3>
-          <p>Conocido como el “Faro del Pacífico”, es uno de los volcanes más emblemáticos de El Salvador.</p>
-        </div>
-        <div class="card">
-          <img src="lago_coatepeque.jpeg" alt="Lago de Coatepeque">
-          <h3>Lago de Coatepeque</h3>
-          <p>Un lago de origen volcánico con aguas cristalinas, ideal para turismo y deportes acuáticos.</p>
-        </div>
-        <div class="card">
-          <img src="cerro_verde.jpg" alt="Cerro Verde">
-          <h3>Cerro Verde</h3>
-          <p>Parque natural con senderos frescos, vistas impresionantes y clima agradable todo el año.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Sección 3 -->
-    <div id="pueblos" class="section">
-      <h2>Pueblos con Encanto</h2>
-      <div class="cards">
-        <div class="card">
-          <img src="juayua.jpg" alt="Juayúa">
-          <h3>Juayúa</h3>
-          <p>Famoso por su festival gastronómico y rodeado de bellos paisajes de montaña.</p>
-        </div>
-        <div class="card">
-          <img src="ataco.jpg" alt="Ataco">
-          <h3>Ataco</h3>
-          <p>Un pueblo lleno de murales artísticos, cafés pintorescos y ambiente acogedor.</p>
-        </div>
-        <div class="card">
-          <img src="apaneca.jpg" alt="Apaneca">
-          <h3>Apaneca</h3>
+     <!-- Sección  -->
+    <div id="Misión" class="section">
+      <div class="card"></div>
+          <p>Ofrecer experiencias turísticas auténticas que conecten a las personas con la naturaleza, la cultura y la historia de El Salvador. Promovemos destinos frescos, saludables y sostenibles, inspirando aventuras que respeten el entorno y enriquezcan el espíritu.
+A través de recomendaciones, rutas y guías confiables, acompañamos a cada viajero en su camino para descubrir lo mejor de nuestro país.
+.</p>
+          <!-- Sección  -->
+    <div id="Visión" class="section">
+      <div class="card"></div>
           <p>Un destino ideal para los amantes de la naturaleza y la aventura al aire libre.</p>
         </div>
       </div>
+    </div>
+  </div>
+  
+  <!-- Modal Misión -->
+  <div id="modalMision" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeMision">&times;</span>
+      <h2>Misión</h2>
+      <p>Ofrecer experiencias turísticas auténticas que conecten a las personas con la naturaleza, la cultura y la historia de El Salvador. Promovemos destinos frescos, saludables y sostenibles, inspirando aventuras que respeten el entorno y enriquezcan el espíritu.
+A través de recomendaciones, rutas y guías confiables, acompañamos a cada viajero en su camino para descubrir lo mejor de nuestro país.</p>
+    </div>
+  </div>
+
+  <!-- Modal Visión -->
+  <div id="modalVision" class="modal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeVision">&times;</span>
+      <h2>Visión</h2>
+      <p>Un destino ideal para los amantes de la naturaleza y la aventura al aire libre.</p>
     </div>
   </div>
 
@@ -181,7 +337,37 @@
   <footer id="contacto">
     <p>&copy; 2025 Rutas Frescas de El Salvador | Todos los derechos reservados</p>
   </footer>
+
+  <!-- Script -->
+  <script>
+    const btnMision = document.getElementById("btnMision");
+    const btnVision = document.getElementById("btnVision");
+    const modalMision = document.getElementById("modalMision");
+    const modalVision = document.getElementById("modalVision");
+    const closeMision = document.getElementById("closeMision");
+    const closeVision = document.getElementById("closeVision");
+
+    btnMision.onclick = (e) => {
+      e.preventDefault();
+      modalMision.style.display = "flex";
+    };
+    btnVision.onclick = (e) => {
+      e.preventDefault();
+      modalVision.style.display = "flex";
+    };
+
+    closeMision.onclick = () => modalMision.style.display = "none";
+    closeVision.onclick = () => modalVision.style.display = "none";
+
+    // Cerrar al hacer clic fuera del contenido
+    window.onclick = (e) => {
+      if (e.target === modalMision) modalMision.style.display = "none";
+      if (e.target === modalVision) modalVision.style.display = "none";
+    };
+  
+  </script>
 </body>
 </html>
+
 
 
